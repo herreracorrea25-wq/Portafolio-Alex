@@ -1,0 +1,256 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* ========================= */
+/* NAV */
+/* ========================= */
+
+nav {
+    background: #2c2c2c;
+    padding: 20px 60px;
+    overflow: hidden;
+}
+
+.nombre-nav {
+    float: left;
+    color: white;
+    font-size: 28px;
+}
+
+.enlaces-nav {
+    float: right;
+}
+
+.enlaces-nav a {
+    text-decoration: none;
+    color: #cccccc;
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+.enlaces-nav a:hover,
+.enlaces-nav .activo {
+    color: white;
+}
+
+/* ========================= */
+/* HERO */
+/* ========================= */
+
+.inicio {
+    padding: 50px 60px;
+    overflow: hidden;
+}
+
+.imagen-inicio {
+    float: left;
+    width: 45%;
+    text-align: center;
+}
+
+.imagen-inicio img {
+    width: 100%;
+    max-width: 400px;
+}
+
+.texto-inicio {
+    float: right;
+    width: 50%;
+}
+
+.texto-inicio h1 {
+    font-size: 50px;
+    color: #e74c3c;
+    margin-bottom: 20px;
+}
+
+.texto-inicio p {
+    font-size: 22px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+/* ========================= */
+/* BOTÓN */
+/* ========================= */
+
+.boton-rojo {
+    background: #e74c3c;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* ========================= */
+/* QUIEN SOY */
+/* ========================= */
+
+.quien-soy {
+    background: #e74c3c;
+    text-align: center;
+    padding: 50px 30px;
+}
+
+.foto-perfil {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    object-fit: cover;
+    border: 5px solid white;
+}
+
+.quien-soy p {
+    color: white;
+    font-size: 24px;
+    max-width: 1000px;
+    margin: 10px auto;
+    line-height: 1.6;
+}
+
+/* ========================= */
+/* PROYECTOS */
+/* ========================= */
+
+.proyectos {
+    background: #f2f2f2;
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.proyectos h2 {
+    font-size: 38px;
+    margin-bottom: 40px;
+}
+
+/* IMPORTANTE:
+   inline-block evita el problema
+   de que siga saliendo en 2 columnas
+*/
+
+.contenedor-tarjetas {
+    text-align: center;
+    font-size: 0;
+}
+
+.tarjeta {
+    width: 23%;
+    margin: 1%;
+    background: white;
+    border-radius: 5px;
+    overflow: hidden;
+    vertical-align: top;
+    font-size: 16px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+    display: inline-block;
+}
+
+.tarjeta img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.cuerpo-tarjeta {
+    padding: 20px;
+}
+
+.cuerpo-tarjeta h3 {
+    margin-bottom: 15px;
+    font-size: 22px;
+}
+
+.cuerpo-tarjeta p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* ========================= */
+/* FOOTER */
+/* ========================= */
+
+footer {
+    background: #2c2c2c;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* ========================= */
+/* RESPONSIVE */
+/* ========================= */
+/* ===== 1200px → 2 columnas ===== */
+
+@media (max-width: 1200px) {
+    .tarjeta {
+        width: 48%;
+        margin: 1%;
+    }
+}
+
+/* ===== 750px → 1 columna ===== */
+
+@media (max-width: 780px) {
+    .tarjeta {
+        width: 100%;
+        margin: 0 0 20px 0;
+    }
+
+    nav {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .nombre-nav,
+    .enlaces-nav {
+        float: none;
+    }
+
+    .nombre-nav {
+        display: block;
+        margin-bottom: 15px;
+    }
+
+    .inicio {
+        padding: 30px 20px;
+    }
+
+    .imagen-inicio,
+    .texto-inicio {
+        float: none;
+        width: 100%;
+        text-align: center;
+    }
+
+    .imagen-inicio {
+        margin-bottom: 30px;
+    }
+
+    .texto-inicio h1 {
+        font-size: 34px;
+    }
+
+    .texto-inicio p {
+        font-size: 16px;
+    }
+
+    .quien-soy p {
+        font-size: 18px;
+    }
+
+    .proyectos h2 {
+        font-size: 28px;
+    }
+}
