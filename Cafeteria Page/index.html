@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee — Savor the Perfect Brew</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ============ NAVBAR ============ -->
+    <header class="navbar">
+        <div class="container nav-inner">
+            <a href="#home" class="logo">Coffee</a>
+
+            <!-- Toggle del menú móvil (checkbox + label, sin JS) -->
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label" aria-label="Abrir menú">
+                <span></span><span></span><span></span>
+            </label>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#story">Our Story</a></li>
+                    <li><a href="#location">Location</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1>Savor the<br>Perfect Brew!</h1>
+            <p>Experience handcrafted coffee made from the finest single-origin
+               beans, roasted in-house and served with care. Your perfect cup
+               is waiting for you.</p>
+            <div class="hero-buttons">
+                <a href="#menu" class="btn btn-light">Learn More</a>
+                <a href="#menu" class="btn btn-primary">Order Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FEATURES ============ -->
+    <section class="features" id="menu">
+        <div class="container">
+            <h2 class="section-title">Features</h2>
+            <div class="features-grid">
+
+                <article class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4Z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                    </div>
+                    <h3>Espresso</h3>
+                    <p>A rich, full-bodied shot pulled from freshly ground beans for an intense, aromatic experience.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4Z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                    </div>
+                    <h3>Latte</h3>
+                    <p>Smooth espresso layered with silky steamed milk and a delicate touch of velvety microfoam.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4Z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                    </div>
+                    <h3>Cappuccino</h3>
+                    <p>Equal parts espresso, steamed milk and airy foam, dusted with a fine layer of cocoa.</p>
+                </article>
+
+                <article class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4Z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+                    </div>
+                    <h3>Cold Brew</h3>
+                    <p>Slow-steeped for 18 hours to deliver a naturally sweet, smooth and refreshingly bold cup.</p>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ WHY CHOOSE US ============ -->
+    <section class="why-choose" id="story">
+        <div class="why-grid">
+
+            <div class="why-col why-text">
+                <h2>Why Choose Us?</h2>
+                <p>From bean to cup, we obsess over every detail. Ethically
+                   sourced beans, expert baristas and a warm space designed
+                   to make every visit feel like home.</p>
+                <a href="#contact" class="btn btn-outline-light">Learn More</a>
+            </div>
+
+            <div class="why-col why-image" role="img" aria-label="Taza de café vista desde arriba"></div>
+
+            <div class="why-col why-offer">
+                <span class="offer-eyebrow">Order Now</span>
+                <h2>20% Off from 10 AM</h2>
+                <p>Start your morning right. Enjoy a special discount on all
+                   handcrafted drinks every weekday before noon.</p>
+                <a href="#menu" class="btn btn-primary">Our Services</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============ VISIT US TODAY ============ -->
+    <section class="visit" id="location">
+        <div class="container">
+            <h2 class="section-title">Visit Us Today</h2>
+            <div class="products-grid">
+
+                <article class="product-card">
+                    <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600&q=80&auto=format&fit=crop')"></div>
+                    <h3>Classic Latte</h3>
+                    <span class="price">$4.50</span>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80&auto=format&fit=crop')"></div>
+                    <h3>Cappuccino</h3>
+                    <span class="price">$4.00</span>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1521302080334-4bebac2763a6?w=600&q=80&auto=format&fit=crop')"></div>
+                    <h3>Flat White</h3>
+                    <span class="price">$4.25</span>
+                </article>
+
+                <article class="product-card">
+                    <div class="product-img" style="background-image:url('https://images.unsplash.com/photo-1534778101976-62847782c213?w=600&q=80&auto=format&fit=crop')"></div>
+                    <h3>Mocha</h3>
+                    <span class="price">$5.00</span>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ SHOWCASE ============ -->
+    <section class="showcase">
+        <div class="showcase-overlay"></div>
+        <div class="container showcase-content">
+            <h2>Enjoy Your Hour</h2>
+            <p>Pull up a chair, slow down and let the aroma do the rest.
+               A quiet corner, great coffee and time well spent.</p>
+            <a href="#contact" class="btn btn-primary">Book a Table</a>
+        </div>
+    </section>
+
+    <!-- ============ TESTIMONIALS ============ -->
+ <section class="guests-section">
+
+    <div class="guest-item">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Guest">
+        <div class="guest-content">
+            <h3>Otis Van Rafe</h3>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipiscing elit.
+                Sed do eiusmod tempor incididunt.
+            </p>
+        </div>
+    </div>
+
+    <div class="guest-item">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Guest">
+        <div class="guest-content">
+            <h3>Rodrige Chalon</h3>
+            <p>Experienced Barista</p>
+        </div>
+    </div>
+
+    <div class="guest-item">
+        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Guest">
+        <div class="guest-content">
+            <h3>$5000 a Coffee</h3>
+            <p>5k Customers</p>
+        </div>
+    </div>
+
+</section>
+
+    <!-- ============ FOOTER ============ -->
+ <footer class="footer">
+
+    <div class="footer-bottom">
+        <div class="footer-brand">
+            <h3>World's smiley coffee</h3>
+            <span>www.coffeeshop.com</span>
+        </div>
+
+        <div class="socials">
+            <a href="#">f</a>
+            <a href="#">ig</a>
+            <a href="#">yt</a>
+            <a href="#">x</a>
+        </div>
+
+        <div class="footer-buttons">
+            <button class="btn-light">More Information</button>
+            <button class="btn-orange">Purchase</button>
+        </div>
+    </div>
+
+</footer>
+
+</body>
+</html>
