@@ -4,110 +4,143 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portafolio de Proyectos</title>
-<link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
+
   <header>
-    <h1>🗂️Mi Portafolio de Proyectos</h1>
-    <p>Aquí puedes encontrar y abrir cada uno de los proyectos entregables</p>
+    <div class="header-inner">
+      <span class="eyebrow">// portafolio — deyner herrera</span>
+      <h1>Expediente de Proyectos</h1>
+      <p>ADSO - 3230935</p>
+    </div>
   </header>
 
   <main>
     <section class="intro">
-      <h2>☣︎ Proyectos ☣︎</h2>
+      <h2>Índice de entregas</h2>
       <p>
-        Este portafolio reúne los trabajos desarrollados. Cada tarjeta contiene una breve descripción
-        y un botón para abrir el proyecto correspondiente.
+        Este portafolio reúne los trabajos desarrollados hasta el momento.
+        Cada ficha contiene una breve descripción y un enlace para abrir el proyecto correspondiente.
       </p>
     </section>
 
-           <table class="projects-table">
-            <tr>
-                <td class="project-cell">
-                    <div class="project-card">
-                        <img src="./imagenes/hoja de vida (1).jpg"
-                            alt="Hoja de vida">
-                        <div class="project-info">
-                             <div class="overlay"></div>
-                            <h3>Hoja de vida</h3>
-                            <p>Primer proyecto el cual intenta crear una hoja de vida </p>
-                            <a href="./Hoja de vida/index.html" class="btn-project">Ver Proyecto</a>
-                        </div>
-                    </div>
-                </td>
+    <section class="projects-grid">
 
-                <td class="project-cell">
-                    <div class="project-card">
-                        <img src="./imagenes/tarjeta de presentacion.2.jpg"
-                            alt="Tarjeta de Presentacion">
-                        <div class="project-info">
-                             <div class="overlay"></div>
-                            <h3>Tarjeta de Presentacion</h3>
-                            <p>pagina donde se recrea una tarjeta de presentacion con informacion basica y un estilo simple</p>
-                            <a href="./Tarjeta de presentacion/index.html" class="btn-project">Ver Proyecto</a>
-                        </div>
-                    </div>
-                </td>
+      <article class="project-card" data-num="01">
+        <div class="card-top">
+          <span class="card-id">Nº 01</span>
+          <span class="card-status">archivado</span>
+        </div>
+        <div class="card-body">
+          <h3>Hoja de vida</h3>
+          <p>Primer proyecto, en el cual se intenta construir una hoja de vida desde cero.</p>
+        </div>
+        <a href="./Hoja de vida/index.html" class="btn-project">
+          <span>Abrir proyecto</span>
+          <span class="arrow">→</span>
+        </a>
+      </article>
 
-                <td class="project-cell">
-                    <div class="project-card">
-                        <img src="./imagenes/quien soy.3.jpg"
-                            alt="imagen de proyecto 3">
-                        <div class="project-info">
-                             <div class="overlay"></div>
-                            <h3>Quien soy</h3>
-                            <p>Pagina web de ejemplo en la que se intento recrear al maximo una pagina web ya creada</p>
-                            <a href="./Quien soy/index.html" class="btn-project">Ver Proyecto</a>
-                        </div>
-                    </div>
-                </td>
+      <article class="project-card" data-num="02">
+        <div class="card-top">
+          <span class="card-id">Nº 02</span>
+          <span class="card-status">archivado</span>
+        </div>
+        <div class="card-body">
+          <h3>Tarjeta de presentación</h3>
+          <p>Página donde se recrea una tarjeta de presentación con información básica y un estilo simple.</p>
+        </div>
+        <a href="./Tarjeta de presentacion/index.html" class="btn-project">
+          <span>Abrir proyecto</span>
+          <span class="arrow">→</span>
+        </a>
+      </article>
 
-                <td class="project-cell">
-                    <div class="project-card">
-                        <img src="./imagenes/Factura.png"
-                            alt="imagen de proyecto 4">
-                        <div class="project-info">
-                             <div class="overlay"></div>
-                            <h3>Factura</h3>
-                            <p>Recreando una factura basada en una imagen compartida</p>
-                            <a href="./Factura/index.html" class="btn-project">Ver Proyecto</a>
-                        </div>
-                    </div>
-                </td>
+      <article class="project-card" data-num="03">
+        <div class="card-top">
+          <span class="card-id">Nº 03</span>
+          <span class="card-status">archivado</span>
+        </div>
+        <div class="card-body">
+          <h3>Quién soy</h3>
+          <p>Página web de ejemplo en la que se intentó recrear al máximo una página ya existente.</p>
+        </div>
+        <a href="./Quien soy/index.html" class="btn-project">
+          <span>Abrir proyecto</span>
+          <span class="arrow">→</span>
+        </a>
+      </article>
 
+      <article class="project-card" data-num="04">
+        <div class="card-top">
+          <span class="card-id">Nº 04</span>
+          <span class="card-status">archivado</span>
+        </div>
+        <div class="card-body">
+          <h3>Factura</h3>
+          <p>Recreación de una factura basada en una imagen de referencia compartida por el cliente.</p>
+        </div>
+        <a href="./Factura/index.html" class="btn-project">
+          <span>Abrir proyecto</span>
+          <span class="arrow">→</span>
+        </a>
+      </article>
 
-                 <td class="project-cell">
-                    <div class="project-card">
-                        <img src="./imagenes/brief 5.png"
-                            alt="imagen de proyecto 5">
-                        <div class="project-info">
-                             <div class="overlay"></div>
-                            <h3>Brief 5</h3>
-                            <p>Pagina web donde recreamos las peticiones de un cliente simuladon un caso real de trabajo</p>
-                            <a href="./Brief 5/inicio.html" class="btn-project">Ver Proyecto</a>
-                        </div>
-                    </div>
-                </td>
+      <article class="project-card" data-num="05">
+        <div class="card-top">
+          <span class="card-id">Nº 05</span>
+          <span class="card-status">archivado</span>
+        </div>
+        <div class="card-body">
+          <h3>Brief 5</h3>
+          <p>Página web donde se recrean las peticiones de un cliente, simulando un caso real de trabajo.</p>
+        </div>
+        <a href="./Brief 5/inicio.html" class="btn-project">
+          <span>Abrir proyecto</span>
+          <span class="arrow">→</span>
+        </a>
+      </article>
 
+      <article class="project-card" data-num="06">
+        <div class="card-top">
+          <span class="card-id">Nº 06</span>
+          <span class="card-status">archivado</span>
+        </div>
+        <div class="card-body">
+          <h3>Cafetería Page</h3>
+          <p>Recreación de la página de una cafetería, replicando casi a la perfección una imagen de referencia.</p>
+        </div>
+        <a href="./Cafeteria Page/index.html" class="btn-project">
+          <span>Abrir proyecto</span>
+          <span class="arrow">→</span>
+        </a>
+      </article>
 
-                <td class="project-cell">
-                    <div class="project-card">
-                        <img src="./imagenes/cafeteria.page.png"
-                            alt="imagen de proyecto 6">
-                        <div class="project-info">
-                             <div class="overlay"></div>
-                            <h3>Cafeteria Page</h3>
-                            <p>Recreacion de la pagina de una cafeteria replicando casi a la perfeccion una imagen de referencia</p>
-                            <a href="./Cafeteria Page/index.html" class="btn-project">Ver Proyecto</a>
-                        </div>
-                    </div>
-                </td>
-        </table>
-    </div>
+      <article class="project-card" data-num="07">
+        <div class="card-top">
+          <span class="card-id">Nº 07</span>
+          <span class="card-status">archivado</span>
+        </div>
+        <div class="card-body">
+          <h3>Cards Api random</h3>
+          <p>Consumo de una API para el manejo de datos con varios usuarios</p>
+        </div>
+        <a href="./portafolio/index.html" class="btn-project">
+          <span>Abrir proyecto</span>
+          <span class="arrow">→</span>
+        </a>
+      </article>
+
+    </section>
   </main>
 
   <footer>
-    <p>Portafolio de Deyner Herrera - Entregas de proyectos</p>
+    <p>Portafolio de Deyner Herrera — Entregas de proyectos</p>
   </footer>
+
 </body>
 </html>
