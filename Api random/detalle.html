@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Usuario</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212; /* Fondo general oscuro */
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .detalle-card {
+            background: #1e1e1e; /* Tarjeta oscura */
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            border: 1px solid #2c2c2c;
+        }
+
+        .detalle-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid #3b82f6;
+        }
+
+        .detalle-card h2 {
+            color: #ffffff;
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        .info-group {
+            text-align: left;
+            margin-top: 20px;
+            border-top: 1px solid #2c2c2c;
+            padding-top: 15px;
+        }
+
+        .info-group p {
+            margin: 8px 0;
+            color: #b0b0b0;
+            font-size: 0.95rem;
+        }
+
+        .info-group strong {
+            color: #ffffff;
+        }
+
+        .btn-volver {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 10px 20px;
+            background-color: #3b82f6;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: opacity 0.2s;
+        }
+
+        .btn-volver:hover {
+            opacity: 0.85;
+        }
+
+        .star {
+            display: inline-block;
+            font-size: 26px;
+            color: #555555;
+            cursor: pointer;
+            user-select: none;
+            margin-left: 10px;
+            vertical-align: middle;
+            transition: color 0.2s;
+        }
+
+        .star:hover {
+            color: #ffb400;
+        }
+
+        .star.active {
+            color: #ffb400;
+            text-shadow: 0 0 8px rgba(255, 180, 0, 0.4);
+        }
+
+        .error-msg {
+            color: #888;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="detalle-card" id="detalle-container"></div>
+
+    <script>
+        const contenedor = document.getElementById("detalle-container");
+        const usuarioGuardado = localStorage.getItem("usuarioSeleccionado");
+
+        // Detectar si venimos desde favoritos mediante parámetros en la URL (?from=favoritos)
+        const urlParams = new URLSearchParams(window.location.search);
+        const origen = urlParams.get('from');
+        const enlaceVolver = origen === 'favoritos' ? 'favoritos.html' : 'index.html';
+        const textoVolver = origen === 'favoritos' ? 'Volver a favoritos' : 'Volver al listado';
+
+        if (usuarioGuardado) {
+            const usuario = JSON.parse(usuarioGuardado);
+
+            contenedor.innerHTML = `
+                <img src="${usuario.picture.large}" alt="Foto de ${usuario.name.first}">
+                <h2>${usuario.name.title ? usuario.name.title + ' ' : ''}${usuario.name.first} ${usuario.name.last} <span id="favStar" class="star" title="Favorito">★</span></h2>
+                
+                <div class="info-group">
+                    <p><strong>Género:</strong> ${usuario.gender}</p>
+                    <p><strong>Edad:</strong> ${usuario.dob.age} años (Nacimiento: ${usuario.dob.date.split('T')[0]})</p>
+                    <p><strong>Email:</strong> ${usuario.email}</p>
+                    <p><strong>Teléfono:</strong> ${usuario.phone}</p>
+                    <p><strong>Celular:</strong> ${usuario.cell}</p>
+                    <p><strong>País:</strong> ${usuario.location.country}</p>
+                    <p><strong>Ciudad:</strong> ${usuario.location.city}</p>
+                    <p><strong>Dirección:</strong> ${usuario.location.street.name} #${usuario.location.street.number}</p>
+                    <p><strong>Nombre de Usuario:</strong> ${usuario.login.username}</p>
+                </div>
+
+                <a href="${enlaceVolver}" class="btn-volver">${textoVolver}</a>
+            `;
+
+            // Sincronizar estado de la estrella con el localStorage
+            const favStar = document.getElementById('favStar');
+            const favoritos = JSON.parse(localStorage.getItem('favoritos') || '[]');
+            const isFav = favoritos.some(f => f.login && f.login.uuid === usuario.login.uuid);
+            
+            if (isFav) favStar.classList.add('active');
+
+            favStar.addEventListener('click', (e) => {
+                e.preventDefault();
+                let favs = JSON.parse(localStorage.getItem('favoritos') || '[]');
+                const idx = favs.findIndex(f => f.login && f.login.uuid === usuario.login.uuid);
+                
+                if (idx === -1) {
+                    favs.push(usuario);
+                    favStar.classList.add('active');
+                } else {
+                    favs.splice(idx, 1);
+                    favStar.classList.remove('active');
+                }
+                localStorage.setItem('favoritos', JSON.stringify(favs));
+            });
+
+        } else {
+            contenedor.innerHTML = `
+                <p class="error-msg">No se encontró información del usuario.</p>
+                <a href="${enlaceVolver}" class="btn-volver">${textoVolver}</a>
+            `;
+        }
+    </script>
+</body>
+
+</html>

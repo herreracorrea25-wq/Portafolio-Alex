@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tus Favoritos</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212; /* Fondo general oscuro */
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            font-size: 2.2rem;
+            font-style: italic;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        /* Contenedor adaptado exactamente para 5 columnas (igual que el index) */
+        .container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            max-width: 1400px;
+            margin: 20px auto;
+        }
+
+        /* Responsivo para tablets y celulares */
+        @media (max-width: 1200px) {
+            .container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+        .card {
+            background: #1e1e1e; /* Tarjeta oscura */
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            border: 1px solid #2c2c2c;
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+            background: #252525;
+        }
+
+        .card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+            border: 2px solid #3b82f6;
+        }
+
+        .card h3 {
+            margin: 10px 0 6px 0;
+            color: #ffffff;
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+
+        .card p {
+            color: #a0a0a0;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .actions {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 15px;
+        }
+
+        .btn {
+            padding: 8px 12px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.85rem;
+            transition: opacity 0.2s;
+        }
+
+        .btn:hover {
+            opacity: 0.85;
+        }
+
+        /* Botón de ver detalle adaptado al esquema oscuro */
+        .btn-view {
+            background: #3b82f6;
+            color: #fff;
+        }
+
+        .btn-back {
+            background: #3b82f6;
+            color: #fff;
+            text-decoration: none;
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin: 20px auto;
+        }
+
+        .btn-del {
+            background: #ef4444; /* Rojo elegante para eliminar */
+            color: #fff;
+        }
+
+        .empty {
+            text-align: center;
+            grid-column: 1 / -1;
+            margin-top: 50px;
+            color: #888;
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="titulo">Tus Favoritos (0)</h1>
+    <div id="container" class="container"></div>
+    <div style="text-align:center">
+        <button id="btn-back" class="btn btn-back">Volver al listado</button>
+    </div>
+
+    <script>
+        function cargarFavoritos() {
+            const cont = document.getElementById('container');
+            const favs = JSON.parse(localStorage.getItem('favoritos') || '[]');
+            cont.innerHTML = '';
+            const titulo = document.getElementById('titulo');
+            const total = favs ? favs.length : 0;
+            titulo.textContent = `Tus Favoritos (${total})`;
+
+            if (!favs || favs.length === 0) {
+                cont.innerHTML = '<p class="empty">No has seleccionado favoritos todavía.</p>';
+                return;
+            }
+
+            favs.forEach((u, idx) => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <img src="${u.picture.large || u.picture.medium}" alt="${u.name.first} ${u.name.last}">
+                    <h3>${u.name.title ? u.name.title + ' ' : ''}${u.name.first} ${u.name.last}</h3>
+                    <p><strong>Edad:</strong> ${u.dob.age} años</p>
+                `;
+
+                const actions = document.createElement('div');
+                actions.className = 'actions';
+
+                const btnView = document.createElement('button');
+                btnView.className = 'btn btn-view';
+                btnView.textContent = 'Ver detalle';
+                btnView.addEventListener('click', () => {
+                    localStorage.setItem('usuarioSeleccionado', JSON.stringify(u));
+                    window.location.href = 'detalle.html?from=favoritos';
+                });
+
+                const btnDel = document.createElement('button');
+                btnDel.className = 'btn btn-del';
+                btnDel.textContent = 'Eliminar';
+                btnDel.addEventListener('click', () => {
+                    let current = JSON.parse(localStorage.getItem('favoritos') || '[]');
+                    current.splice(idx, 1);
+                    localStorage.setItem('favoritos', JSON.stringify(current));
+                    cargarFavoritos();
+                });
+
+                actions.appendChild(btnView);
+                actions.appendChild(btnDel);
+                card.appendChild(actions);
+                cont.appendChild(card);
+            });
+        }
+
+        cargarFavoritos();
+
+        // Volver al listado
+        document.getElementById('btn-back').addEventListener('click', () => {
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+
+</html>
